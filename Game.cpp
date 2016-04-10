@@ -137,12 +137,14 @@ void Game::options()
 				state = END;
 			}
 
-			for (int i = 5; i < 10; i++)
+			for (int i = 5; i < 16; i++)
 			{
 				if (text[i].getGlobalBounds().contains(mouse))
 					text[i].setColor(sf::Color(26, 188, 156));
 				else
 					text[i].setColor(sf::Color::White);
+				if (i == 9)
+					i += 4;
 			}
 
 			if (text[5].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -178,7 +180,19 @@ void Game::options()
 
 				text[9].setString(toString(level));
 			}
-			std::cout << level << std::endl;
+
+			if (text[15].getGlobalBounds().contains(mouse) && event.type == sf::Event::MouseButtonReleased && event.key.code == sf::Mouse::Left)
+			{
+				FPSLimit += 10;
+
+				if (FPSLimit == 500)
+					FPSLimit = 60;
+
+				window.setFramerateLimit(FPSLimit);
+
+				text[15].setString(toString(FPSLimit));
+			}
+			
 			for (int i = 0; i < 2; i++)
 			{
 				if (arrow[i].getGlobalBounds().contains(mouse))
@@ -215,8 +229,13 @@ void Game::options()
 		window.draw(player[index]);
 		window.draw(arrow[0]);
 		window.draw(arrow[1]);
-		for (int i = 5; i < 10; i++)
+		for (int i = 5; i < 16; i++)
+		{
 			window.draw(text[i]);
+			if (i == 9)
+				i += 4;
+		}
+			
         window.display();
     }
 }
@@ -317,11 +336,12 @@ std::string Game::toString(int number)
 
 Game::Game(void)
 {	
-    context.antialiasingLevel = 0;
+	FPSLimit = 150;
+	context.antialiasingLevel = 0;
     windowSize = sf::Vector2f(1280, 720);
 
     window.create(sf::VideoMode(windowSize.x, windowSize.y), "Space Ambient", sf::Style::Close, context);
-	window.setFramerateLimit(150);
+	window.setFramerateLimit(FPSLimit);
 
     font[0].loadFromFile("data/fonts/kenvector_future.ttf");
 	font[1].loadFromFile("data/fonts/kenvector_future_thin.ttf");
@@ -365,7 +385,9 @@ Game::Game(void)
 	strings[11] = "Your score: ";
 	strings[12] = "New Game";
 	strings[13] = "Back to menu";
-	
+	strings[14] = "FPS Limit";
+	strings[15] = "150";
+
 
 	textures[0].loadFromFile("data/textures/playerShip1_blue.png");
 	textures[1].loadFromFile("data/textures/playerShip1_green.png");
@@ -416,7 +438,7 @@ Game::Game(void)
 		player[i].setPosition(640.f, 215.f);
 	}
 
-	for (int i = 6; i < 14; i++)
+	for (int i = 6; i < 16; i++)
 	{	
 		text[i].setFont(font[1]);
 		text[i].setString(strings[i]);
@@ -449,4 +471,12 @@ Game::Game(void)
 	text[13].setCharacterSize(27);
 	text[13].setOrigin(text[13].getGlobalBounds().width / 2, text[13].getGlobalBounds().height / 2);
 	text[13].setPosition(640.f, 460.f);
+
+	text[14].setCharacterSize(24);
+	text[14].setOrigin(text[14].getGlobalBounds().width / 2, text[14].getGlobalBounds().height / 2);
+	text[14].setPosition(640.f, 520.f);
+
+	text[15].setCharacterSize(19);
+	text[15].setOrigin(text[15].getGlobalBounds().width / 2, text[15].getGlobalBounds().height / 2);
+	text[15].setPosition(640.f, 550.f);
 }

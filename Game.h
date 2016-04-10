@@ -19,7 +19,7 @@ private:
     Audio audio;
 
     sf::Font font[2];
-    sf::Text text[14];
+    sf::Text text[16];
     sf::Texture texture[5];
     sf::Sprite background;
 	sf::Sprite arrow[2];
@@ -29,7 +29,7 @@ private:
 	sf::Texture textures[12];
     sf::ContextSettings context;
 
-    std::string strings[14];
+    std::string strings[16];
 	std::string toString(int);
 
     enum GameState {ENTRANCE, MENU, ENGINE, END, OPTIONS, ABOUT, OVER};
@@ -38,6 +38,7 @@ private:
 	int index;
 	int level;
 	int score;
+	int FPSLimit;
 
     void start();
     void options();
