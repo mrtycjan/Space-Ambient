@@ -321,7 +321,7 @@ Game::Game(void)
     windowSize = sf::Vector2f(1280, 720);
 
     window.create(sf::VideoMode(windowSize.x, windowSize.y), "Space Ambient", sf::Style::Close, context);
-	window.setFramerateLimit(300);
+	window.setFramerateLimit(150);
 
     font[0].loadFromFile("data/fonts/kenvector_future.ttf");
 	font[1].loadFromFile("data/fonts/kenvector_future_thin.ttf");
