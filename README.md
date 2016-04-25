@@ -9,3 +9,4 @@ Some of Screen Shot
 ![ss1](https://s22.postimg.org/kj7u750td/ss1.png)
 ![ss2](https://s22.postimg.org/wmhr8g19d/ss2.png)
 
+Copyright 2016 mrtycjan
