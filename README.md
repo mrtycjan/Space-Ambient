@@ -1,12 +1,12 @@
-#Space Ambient
+# Space Ambient
 
 Space Shooter with simple open world coded in C++ with SFML. Mix fast Space Shooter game and psychodelic electro music
-and you have Space Ambient. You can download binary [here](http://s000.tinyupload.com/?file_id=00932455172955311473)
+and you have Space Ambient.
 
-Some of Screen Shot
+Some of screenshots of game
 
-![ss](https://s22.postimg.org/ybm92rrkx/ss.png)
-![ss1](https://s22.postimg.org/kj7u750td/ss1.png)
-![ss2](https://s22.postimg.org/wmhr8g19d/ss2.png)
+![ss](https://preview.ibb.co/guMCA8/Screenshot_from_2018_06_06_14_42_23.png)
+![ss1](https://preview.ibb.co/jWGb3T/Screenshot_from_2018_06_06_14_42_48.png)
+![ss2](https://preview.ibb.co/cZDvxo/Screenshot_from_2018_06_06_14_44_40.png)
 
 Copyright 2016 mrtycjan
